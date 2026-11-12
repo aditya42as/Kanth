@@ -1,0 +1,201 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Kanth</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Figtree:wght@400;500;600&family=Instrument+Serif&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <main class="container">
+        <header class="header">
+            <h1 class="logo">Kanth</h1>
+            <p class="tagline">Sargam-first voice practice</p>
+        </header>
+
+        <section class="listening-panel">
+            <div class="listening-header">
+                <div class="status">
+                    <span class="status-indicator"></span>
+                    <span id="listening-status">Start Singing</span>
+                </div>
+                <p class="reference-note">
+                    Sa is <span id="sa-refer">C3</span>
+                </p>
+            </div>
+
+            <div class="note">
+                <div class="sargam-display">
+                    <span id="sargam-note">- -</span>
+                </div>
+                <div class="western-display">
+                    <p id="western-note">-</p>
+                    <p id="frequency">waiting for pitch</p>
+                    <div class="pitch">
+                        <span id="cents-value">_ cents</span>
+                        <div class="cents-meter">
+                            <div class="cents-track">
+                                <div id="cents-indicator"></div>
+                            </div>
+
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="pitch-graph">
+                <svg 
+                    id="pitch-visual"
+                    viewBox="0 0 500 150"
+                    preserveAspectRatio="none"
+                    xmlns="http://www.w3.org/2000/svg"
+                >
+                    <g class="note-reference-line">
+                        <line x1="30" y1="10" x2="500" y2="10" />
+                        <line x1="30" y1="28" x2="500" y2="28" />
+                        <line x1="30" y1="47" x2="500" y2="47" />
+                        <line x1="30" y1="66" x2="500" y2="66" />
+                        <line x1="30" y1="84" x2="500" y2="84" />
+                        <line x1="30" y1="103" x2="500" y2="103" />
+                        <line x1="30" y1="121" x2="500" y2="121" />
+                        <line x1="30" y1="140" x2="500" y2="140" />
+                    </g>
+                    <path id="pitch-line" d=""/>
+                    <circle 
+                        id="current-pitch"
+                        cx="0"
+                        cy="0"
+                        r="5"
+                    />
+                    
+                </svg>
+                <div class="graph-labels">
+                    <span>Sa'</span>
+                    <span>Ni</span>
+                    <span>Dha</span>
+                    <span>Pa</span>
+                    <span>Ma</span>
+                    <span>Ga</span>
+                    <span>Re</span>
+                    <span>Sa</span>
+
+                </div>
+            </div>
+        </section>
+
+        <section class="control-panel">
+            <section class="drone-control">
+
+                <h2>Drone</h2>
+                <div class="control-group">
+                    <label for="sa-select">Sa</label>
+
+                    <select id="sa-select" name="Sa">
+                        <option value="C" selected>C</option>
+                        <option value="C#">C#</option>
+                        <option value="D">D</option>
+                        <option value="D#">D#</option>
+                        <option value="E">E</option>
+                        <option value="F">F</option>
+                        <option value="F#">F#</option>
+                        <option value="G">G</option>
+                        <option value="G#">G#</option>
+                        <option value="A">A</option>
+                        <option value="A#">A#</option>
+                        <option value="B">B</option>
+                    </select>
+                    <select id="octave-select" name="octave">
+
+                        <option value="2">Octave 2</option>
+                        <option value="3" selected>Octave 3</option>
+                        <option value="4">Octave 4</option>
+                        <option value="5">Octave 5</option>
+
+                    </select>
+                </div>
+                <div class="control-group">
+
+                    <label>Sound</label>
+
+                    <div class="segmented-control" role="group" aria-label="Drone sound">
+
+                        <button type="button" class="active" data-sound="tanpura">
+                            Tanpura
+                        </button>
+
+                        <button type="button" data-sound="harmonium">
+                            Harmonium
+                        </button>
+
+                    </div>
+
+                </div>
+                <div class="control-group">
+
+                    <label for="drone-volume">Volume</label>
+
+                    <input
+                        type="range"
+                        id="drone-volume"
+                        name="volume"
+                        min="0"
+                        max="100"
+                        value="60"
+                    >
+
+                </div>
+                <button type="button" id="play-drone">
+                    Play drone
+                </button>
+            </section>
+            <section class="voice-control">
+                <h2>Voice</h2>
+                <div class="control-group">
+
+                    <label>Show notes as</label>
+
+                    <div class="segmented-control" role="group" aria-label="Note notation">
+
+                        <button type="button" class="active" data-notation="sargam">
+                            Sargam
+                        </button>
+
+                        <button type="button" data-notation="western">
+                            Western
+                        </button>
+
+                    </div>
+
+                </div>
+                <div class="control-group">
+
+                    <label for="mic-sensitivity">
+                        Mic sensitivity
+                    </label>
+
+                    <input
+                        type="range"
+                        id="mic-sensitivity"
+                        name="sensitivity"
+                        min="0"
+                        max="100"
+                        value="35"
+                    >
+
+                </div>
+                <p class="privacy-notice">
+                    Your voice is analysed on this device and never uploaded.
+                </p>
+                <button type="button" id="toggle-listening">
+                    Start listening
+                </button>
+            </section>
+        </section>
+    </main>
+    <script src="app.js" defer></script>
+    <script src="mic.js" defer></script>
+</body>
+</html> 

@@ -1,0 +1,253 @@
+
+
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body{
+    font-family: "Figtree", sans-serif;
+    color: #0b2b3a;
+    font-size: 16px;
+    background: #eaf0f2;
+    color-scheme: light;
+}
+
+.container{
+    max-width: 760px;
+    margin: 0 auto;
+    padding: 24px;
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+
+}
+.header{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.logo{
+    font-family: "Instrument Serif", serif;
+    font-size: 36px;
+    font-weight: 400;
+
+}
+.tagline{
+    font-size: 14px;
+    color: #4c6676;
+}
+.listening-panel {
+    background: #0b2b3a;
+    color: #f8fbfc;
+    border-radius: 24px;
+    padding: 24px;
+}
+.listening-header{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-top: 16px;
+}
+
+.status{
+    display: flex;
+    align-items: center;
+    gap:8px;
+    font-size: 14px;
+    color: #9db4c0;
+
+}
+.status-indicator{
+    display: inline-block;
+    width: 8px;
+    height: 8px;
+    border-radius: 50%;
+    background: #63d6a5;
+
+}
+.reference-note{
+    font-size: 14px;
+    color: #9db4c0;
+}
+.note{
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+}
+#sargam-note{
+    font-family: "Instrument Serif", serif;
+    font-size: 132px;
+    line-height: 1;
+
+}
+.western-display{
+    text-align: right;
+}
+#western-note{
+    font-family: "Instrument Serif", serif;
+    font-size: 36px;
+}
+#frequency {
+    font-size: 14px;
+    color: #9db4c0;
+}
+.pitch{
+    display: flex;
+    align-items: center;
+    justify-content: flex-end;
+    gap: 12px;
+    margin-top: 12px;
+}
+.cents-track {
+    width: 100px;
+    height: 4px;
+    background: #4c6676;
+    border-radius: 999px;
+    position: relative;
+}
+#cents-indicator{
+    position: absolute;
+    width: 10px;
+    height: 10px;
+    border-radius: 50%;
+    background: #63d6a5;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+}
+
+.pitch-graph{
+    position: relative;
+    height: 160px;
+}
+#pitch-visual{
+    height: 100%;
+    width: 100%;
+    display: block;
+}
+.note-reference-line {
+    stroke: #4c6676;
+    stroke-width: 1;
+    vector-effect: non-scaling-stroke;
+}
+#pitch-line{
+    fill: none;
+    stroke: #fb8500;
+    stroke-width: 2;
+    stroke-linecap: round;
+    stroke-linejoin: round;
+    vector-effect: non-scaling-stroke;
+}
+#current-pitch{
+    fill: #fb8500;
+}
+.graph-labels{
+    position: absolute;
+    top: 0;
+    left: 0;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    font-size: 12px;
+    color: #9db4c0;
+
+}
+.control-panel{
+    background: #f8fbfc;
+    border: 1px solid #d0dde2;
+    border-radius: 24px;
+    padding: 24px;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+}
+.drone-control {
+    padding-right: 28px;
+    border-right: 1px solid #d0dde2;
+    display: flex;
+    flex-direction: column;
+}
+.voice-control {
+    padding-left: 28px;
+    display: flex;
+    flex-direction: column;
+}
+.control-panel h2{
+    font-family: "Instrument Serif", serif;
+    font-size: 28px;
+    font-weight: 400;
+    margin-bottom: 16px;
+}
+.control-group {
+    margin-bottom: 20px;
+}
+.control-group label{
+    display: block;
+    font-size: 14px;
+    color: #4c6676;
+    margin-bottom: 8px;
+}
+select {
+    font-family: inherit;
+    font-size: 16px;
+    padding: 8px 12px;
+    border: 1px solid #d0dde2;
+    border-radius: 12px;
+    background-color: #ffffff;
+    color: #0b2b3a;
+    margin-right: 8px;
+}
+.segmented-control{
+    display: inline-flex;
+    background: #eaf0f2;
+    border-radius: 999px;
+    padding: 4px;
+}
+.segmented-control button {
+    font-family: inherit;
+    font-size: 14px;
+    border: none;
+    background: transparent;
+    color: #4c6676;
+    padding: 8px 16px;
+    border-radius: 999px;
+    cursor: pointer;
+
+}
+.segmented-control button.active{
+    background: #0b2b3a;
+    color: #f8fbfc;
+}
+input[type="range"] {
+    width: 100%;
+    accent-color: #fb8500;
+}
+.privacy-notice {
+    font-size: 13px;
+    color: #4c6676;
+    margin-bottom: 16px;  
+    margin-top: auto; 
+}
+#play-drone, #toggle-listening {
+    width: 100%;
+    padding: 12px;
+    border-radius: 999px;
+    font-family: inherit;
+    font-size: 16px;
+    font-weight: 600;
+    cursor: pointer;
+}
+#play-drone{
+    background: #fb8500;
+    border: none;
+    color: #0b2b3a;
+    margin-top: auto;
+}
+#toggle-listening{
+    background: transparent;
+    border: 1.5px solid #0b2b3a;
+    color: #0b2b3a;
+}
